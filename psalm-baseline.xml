@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="4.23.0@f1fe6ff483bf325c803df9f510d09a03fd796f88">
+  <file src="src/Coerce.php">
+    <ImpureMethodCall occurrences="1">
+      <code>__toString</code>
+    </ImpureMethodCall>
+  </file>
+  <file src="tests/CoerceTest.php">
+    <PropertyNotSetInConstructor occurrences="2">
+      <code>CoerceTest</code>
+      <code>CoerceTest</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="tests/EnforceTest.php">
+    <PropertyNotSetInConstructor occurrences="2">
+      <code>EnforceTest</code>
+      <code>EnforceTest</code>
+    </PropertyNotSetInConstructor>
+  </file>
+</files>
