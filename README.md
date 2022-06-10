@@ -109,6 +109,30 @@ Returns true if `$value` is one of the following:
 
 For any other values it returns false.
 
+### Coerceable::stringToBool
+
+Specifically tests a string if it can be coerced to a boolean. `$value` must be '0' or '1'.
+
+### Coerceable::intToBool
+
+Specifically tests an integer if it can be coerced to a boolean. `$value` must be 0 or 1.
+
+### Coerceable::floatToBool
+
+Specifically tests a float if it can be coerced to a boolean. `$value` must be 0 or 1.
+
+### Coerceable::floatToInt
+
+Specifically tests a float if it can be coerced to an integer. `$value` must not have a fractional part.
+
+### Coerceable::stringToInt
+
+Specifically tests a string if it can be coerced to an integer. `$value` must be a numeric string and not have a fractional part.
+
+### Coerceable::stringToFloat
+
+Specifically tests a string if it can be coerced to a float. `$value` must be a numeric string.
+
 Coerce a value
 --------------
 
@@ -129,6 +153,42 @@ Returns a float if the given value is coerceable, see [Coerceable::toFloat for v
 ### Coerce::toString
 
 Returns a string if the given value is coerceable, see [Coerceable::toString for valid values](#coerceabletoint), or a TypeError if the value is not coerceable.
+
+### Coerce::stringToBool
+
+Returns a boolean if the given string is coerceable, see [Coerceable::stringToBool for valid values](#coerceablestringtobool), or a TypeError if the value is not coerceable.
+
+### Coerce::intToBool
+
+Returns a boolean if the given int is coerceable, see [Coerceable::intToBool for valid values](#coerceableinttobool), or a TypeError if the value is not coerceable.
+
+### Coerce::floatToBool
+
+Returns a boolean if the given float is coerceable, see [Coerceable::floatToBool for valid values](#coerceablefloattobool), or a TypeError if the value is not coerceable.
+
+### Coerce::floatToInt
+
+Returns an integer if the given float is coerceable, see [Coerceable::floatToInt for valid values](#coerceablefloattoint), or a TypeError if the value is not coerceable.
+
+### Coerce::stringToInt
+
+Returns an integer if the given string is coerceable, see [Coerceable::stringToInt for valid values](#coerceablestringtoint), or a TypeError if the value is not coerceable.
+
+### Coerce::stringToFloat
+
+Returns a float if the given string is coerceable, see [Coerceable::stringToFloat for valid values](#coerceablestringtofloat), or a TypeError if the value is not coerceable.
+
+### Coerce::boolToString
+
+Coerces a boolean to a string, returning either '0' or '1'.
+
+### Coerce::intToString
+
+Coerces an integer to a string, returning a numeric string.
+
+### Coerce::floatToString
+
+Coerces a float to a string, returning a numeric string.
 
 Enforce a type for a value
 --------------------------

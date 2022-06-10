@@ -29,12 +29,12 @@ class CoerceTest extends \PHPUnit\Framework\TestCase
             ],
             [
                 'input' => 'failed',
-                'output' => new TypeError('Only numeric strings and floats with no fractional part are alternative coerceable values for an int, given value: \'failed\''),
+                'output' => new TypeError('Only numbers with no fractional part can be coerced from a string to an int, given value: \'failed\''),
                 'coerceable' => false,
             ],
             [
                 'input' => '39hello',
-                'output' => new TypeError('Only numeric strings and floats with no fractional part are alternative coerceable values for an int, given value: \'39hello\''),
+                'output' => new TypeError('Only numbers with no fractional part can be coerced from a string to an int, given value: \'39hello\''),
                 'coerceable' => false,
             ],
             [
@@ -69,8 +69,13 @@ class CoerceTest extends \PHPUnit\Framework\TestCase
                 ],
             ],
             [
+                'input' => 1.5,
+                'output' => new TypeError('Only numbers with no fractional part can be coerced from a float to an int, given value: 1.5'),
+                'coerceable' => false,
+            ],
+            [
                 'input' => '',
-                'output' => new TypeError('Only numeric strings and floats with no fractional part are alternative coerceable values for an int, given value: \'\''),
+                'output' => new TypeError('Only numbers with no fractional part can be coerced from a string to an int, given value: \'\''),
                 'coerceable' => false,
             ],
             [
@@ -125,12 +130,12 @@ class CoerceTest extends \PHPUnit\Framework\TestCase
             ],
             [
                 'input' => 'failed',
-                'output' => new TypeError('Only numeric strings are alternative coerceable values for a float, given value: \'failed\''),
+                'output' => new TypeError('Only numbers with no fractional part can be coerced from a string to a float, given value: \'failed\''),
                 'coerceable' => false,
             ],
             [
                 'input' => '39hello',
-                'output' => new TypeError('Only numeric strings are alternative coerceable values for a float, given value: \'39hello\''),
+                'output' => new TypeError('Only numbers with no fractional part can be coerced from a string to a float, given value: \'39hello\''),
                 'coerceable' => false,
             ],
             [
@@ -176,7 +181,7 @@ class CoerceTest extends \PHPUnit\Framework\TestCase
             ],
             [
                 'input' => '',
-                'output' => new TypeError('Only numeric strings are alternative coerceable values for a float, given value: \'\''),
+                'output' => new TypeError('Only numbers with no fractional part can be coerced from a string to a float, given value: \'\''),
                 'coerceable' => false,
             ],
             [
@@ -364,6 +369,14 @@ class CoerceTest extends \PHPUnit\Framework\TestCase
                 ],
             ],
             [
+                'input' => 1.5,
+                'output' => new TypeError('Only 0 and 1 can be coerced from a float to a boolean, given value: 1.5'),
+                'coerceable' => false,
+                'parameters' => [
+                    'allowFloat' => true,
+                ],
+            ],
+            [
                 'input' => true,
                 'output' => true,
                 'coerceable' => true,
@@ -440,6 +453,24 @@ class CoerceTest extends \PHPUnit\Framework\TestCase
         foreach ($values as $entry) {
             $this->doOneTest($entry, Coerceable::toBool(...), Coerce::toBool(...));
         }
+    }
+
+    public function testCoerceBoolToString(): void
+    {
+        $this->assertSame('0', Coerce::boolToString(false));
+        $this->assertSame('1', Coerce::boolToString(true));
+    }
+
+    public function testCoerceIntToString(): void
+    {
+        $this->assertSame('-33', Coerce::intToString(-33));
+        $this->assertSame('176', Coerce::intToString(176));
+    }
+
+    public function testCoerceFloatToString(): void
+    {
+        $this->assertSame('-33.3', Coerce::floatToString(-33.3));
+        $this->assertSame('176.8', Coerce::floatToString(176.8));
     }
 
     private function doOneTest(array $entry, callable $coerceable, callable $coerce): void
