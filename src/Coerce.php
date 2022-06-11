@@ -55,7 +55,7 @@ final class Coerce
             return self::stringToInt($value);
         }
 
-        throw new TypeError('Only ' . ( $allowBool ? 'booleans, ' : '' ) . 'numeric strings and floats with no fractional part are alternative coerceable values for an int, given value: ' . Debug::sanitizeData($value));
+        throw new TypeError('Only ' . ( $allowBool ? 'booleans, ' : '' ) . 'numeric strings and floats with no fractional part are alternative coerceable values for an integer, given value: ' . Debug::sanitizeData($value));
     }
 
     /**
@@ -150,7 +150,7 @@ final class Coerce
         return match($value) {
             0 => false,
             1 => true,
-            default => throw new TypeError('Only 0 and 1 can be coerced from an int to a boolean, given value: ' . Debug::sanitizeData($value)),
+            default => throw new TypeError('Only 0 and 1 can be coerced from an integer to a boolean, given value: ' . Debug::sanitizeData($value)),
         };
     }
 
@@ -177,7 +177,7 @@ final class Coerce
             return \intval($value);
         }
 
-        throw new TypeError('Only numbers with no fractional part can be coerced from a float to an int, given value: ' . Debug::sanitizeData($value));
+        throw new TypeError('Only numbers with no fractional part can be coerced from a float to an integer, given value: ' . Debug::sanitizeData($value));
     }
 
     /**
@@ -190,7 +190,7 @@ final class Coerce
             return \intval($value);
         }
 
-        throw new TypeError('Only numbers with no fractional part can be coerced from a string to an int, given value: ' . Debug::sanitizeData($value));
+        throw new TypeError('Only numbers with no fractional part can be coerced from a string to an integer, given value: ' . Debug::sanitizeData($value));
     }
 
     /**

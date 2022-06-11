@@ -29,12 +29,12 @@ class CoerceTest extends \PHPUnit\Framework\TestCase
             ],
             [
                 'input' => 'failed',
-                'output' => new TypeError('Only numbers with no fractional part can be coerced from a string to an int, given value: \'failed\''),
+                'output' => new TypeError('Only numbers with no fractional part can be coerced from a string to an integer, given value: \'failed\''),
                 'coerceable' => false,
             ],
             [
                 'input' => '39hello',
-                'output' => new TypeError('Only numbers with no fractional part can be coerced from a string to an int, given value: \'39hello\''),
+                'output' => new TypeError('Only numbers with no fractional part can be coerced from a string to an integer, given value: \'39hello\''),
                 'coerceable' => false,
             ],
             [
@@ -44,12 +44,12 @@ class CoerceTest extends \PHPUnit\Framework\TestCase
             ],
             [
                 'input' => true,
-                'output' => new TypeError('Only numeric strings and floats with no fractional part are alternative coerceable values for an int, given value: true'),
+                'output' => new TypeError('Only numeric strings and floats with no fractional part are alternative coerceable values for an integer, given value: true'),
                 'coerceable' => false,
             ],
             [
                 'input' => false,
-                'output' => new TypeError('Only numeric strings and floats with no fractional part are alternative coerceable values for an int, given value: false'),
+                'output' => new TypeError('Only numeric strings and floats with no fractional part are alternative coerceable values for an integer, given value: false'),
                 'coerceable' => false,
             ],
             [
@@ -70,12 +70,12 @@ class CoerceTest extends \PHPUnit\Framework\TestCase
             ],
             [
                 'input' => 1.5,
-                'output' => new TypeError('Only numbers with no fractional part can be coerced from a float to an int, given value: 1.5'),
+                'output' => new TypeError('Only numbers with no fractional part can be coerced from a float to an integer, given value: 1.5'),
                 'coerceable' => false,
             ],
             [
                 'input' => '',
-                'output' => new TypeError('Only numbers with no fractional part can be coerced from a string to an int, given value: \'\''),
+                'output' => new TypeError('Only numbers with no fractional part can be coerced from a string to an integer, given value: \'\''),
                 'coerceable' => false,
             ],
             [
@@ -85,22 +85,22 @@ class CoerceTest extends \PHPUnit\Framework\TestCase
                         return 'amazing';
                     }
                 },
-                'output' => new TypeError('Only numeric strings and floats with no fractional part are alternative coerceable values for an int, given value: object(class@anonymous' . '$end$'),
+                'output' => new TypeError('Only numeric strings and floats with no fractional part are alternative coerceable values for an integer, given value: object(class@anonymous' . '$end$'),
                 'coerceable' => false,
             ],
             [
                 'input' => [],
-                'output' => new TypeError('Only numeric strings and floats with no fractional part are alternative coerceable values for an int, given value: []'),
+                'output' => new TypeError('Only numeric strings and floats with no fractional part are alternative coerceable values for an integer, given value: []'),
                 'coerceable' => false,
             ],
             [
                 'input' => (object)[],
-                'output' => new TypeError('Only numeric strings and floats with no fractional part are alternative coerceable values for an int, given value: object(stdClass)'),
+                'output' => new TypeError('Only numeric strings and floats with no fractional part are alternative coerceable values for an integer, given value: object(stdClass)'),
                 'coerceable' => false,
             ],
             [
                 'input' => null,
-                'output' => new TypeError('Only numeric strings and floats with no fractional part are alternative coerceable values for an int, given value: NULL'),
+                'output' => new TypeError('Only numeric strings and floats with no fractional part are alternative coerceable values for an integer, given value: NULL'),
                 'coerceable' => false,
             ],
         ];
