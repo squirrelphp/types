@@ -147,7 +147,7 @@ final class Coerce
      */
     public static function intToBool(int $value): bool
     {
-        return match($value) {
+        return match ($value) {
             0 => false,
             1 => true,
             default => throw new TypeError('Only 0 and 1 can be coerced from an integer to a boolean, given value: ' . Debug::sanitizeData($value)),

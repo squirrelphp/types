@@ -2,9 +2,7 @@
 
 namespace Squirrel\Types;
 
-use Squirrel\Debug\Debug;
 use Stringable;
-use TypeError;
 
 final class Coerceable
 {
@@ -124,7 +122,7 @@ final class Coerceable
      */
     public static function intToBool(int $value): bool
     {
-        return match($value) {
+        return match ($value) {
             0, 1 => true,
             default => false,
         };
